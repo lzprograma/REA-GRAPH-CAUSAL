@@ -1,0 +1,14 @@
+O Papel dos Grafos Causais na Investigação Automatizada Embora a modelagem Bayesiana com LLR consiga ponderar a confiabilidade de fontes isoladas, ela sofre de uma limitação fundamental: correlação não implica causalidade. Em investigações complexas de software ou de segurança, agentes de IA frequentemente caem em armadilhas ao confundir indícios correlacionados com provas causais. É aqui que entram os Grafos Causais.O Problema das Cadeias Lineares de EvidênciaEm cenários de engenharia reversa avançada, um invasor ou um ecossistema hostil pode fabricar múltiplos pontos de dados que parecem independentes, mas que na verdade derivam da mesma fonte corrompida.Exemplo: Três repositórios diferentes num mirror apontam para o mesmo pacote malicioso. Um motor puramente estatístico vê "três fontes dizendo SIM" e aumenta a confiança.A realidade causal: As três fontes são apenas clones automáticos de um único repositório envenenado (causa raiz comum).Como os Grafos Causais Transformam a InvestigaçãoOs Grafos Causais (baseados no formalismo de modelagem causal de Judea Pearl) introduzem nós direcionados que representam mecanismos geradores de dados, e não apenas ocorrências estatísticas.1. Descoberta de Confounders (Variáveis de Confusão)O grafo causal permite que o agente identifique se duas evidências concordantes são realmente independentes ou se ambas são causadas por um fator oculto (como uma campanha coordenada de desinformação ou um espelhamento automático). Ao cortar ou ajustar essas vias de confusão, o agente evita falsos positivos em massa.2. O Poder do Operador de Intervenção ($do$-calculus)Enquanto a probabilidade tradicional responde a perguntas passivas ("Qual a chance de o pacote ser legítimo sabendo que o manifesto diz X?"), os grafos causais permitem perguntas ativas: "O que acontece com a segurança do sistema se forçarmos a verificação da assinatura digital (intervenção $do(X)$)?". Isso isola o agente de dados passivos manipulados por prompt injection em READMEs ou páginas web.3. Cadeias de Confiança RastreáveisEm vez de acumular números opacos, o grafo causal mapeia a linhagem exata:
+
+$$\text{Commit Assinado} \rightarrow \text{Compilação Local Reproduzível} \rightarrow \text{Hash Verificado}$$
+
+Se qualquer elo dessa cadeia causal quebrar, o impacto propaga-se estruturalmente pelo grafo, invalidando conclusões dependentes sem depender de "achismos" probabilísticos.Conclusão: Integrar grafos causais ao motor de evidências transforma o agente de um mero "acumulador de pontos" em um analista lógico capaz de raciocinar sobre contrafactuais, distinguindo o que é uma prova real do que é apenas eco estatístico fabricado por um adversário.
+
+
+
+Caso queiram que eu desenvolva melhor essa solução, autores do REA, por favor, façam o seu feedback neste email:
+guilhermeluizlunz@gmail.com
+
+
+
+Motivações: Meu avô, meus pais e meu irmão pequeno. Essa ideia é totalmente de vocês.
